@@ -35,6 +35,7 @@ script:
     docker cp ${CON}:/home/flecsi/.ccache ${HOME}/
   - ccache -s
 
+
 after_success:
   - shopt -s extglob && [[ ${TRAVIS_BRANCH} = @(master|refactor) ]] && DEPLOY=yes
   - if [[ ${DOCKERHUB} = true && ${DOCKER_USERNAME} && ${DOCKER_PASSWORD} && ${TRAVIS_PULL_REQUEST} == false && ${DEPLOY} ]]; then
